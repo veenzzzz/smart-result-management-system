@@ -1,11 +1,11 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react'
+import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
 import { User, LoginCredentials } from '@/types'
 import { api } from '@/utils/api'
 
 interface AuthContextType {
   user: User | null
   loading: boolean
-  login: (credentials: LoginCredentials) => Promise<boolean>
+  login: (credentials: LoginCredentials) => Promise<User | null>
   logout: () => void
   isAuthenticated: boolean
   hasRole: (role: string) => boolean
@@ -39,19 +39,19 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
   }
 
-  const login = async (credentials: LoginCredentials): Promise<boolean> => {
+  const login = async (credentials: LoginCredentials): Promise<User | null> => {
     try {
       setLoading(true)
       const response = await api.post<User>('/auth/login', credentials)
       
       if (response.success && response.data) {
         setUser(response.data)
-        return true
+        return response.data
       }
-      return false
+      return null
     } catch (error) {
       console.error('Login failed:', error)
-      return false
+      return null
     } finally {
       setLoading(false)
     }

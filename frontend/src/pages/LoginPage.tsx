@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { GraduationCap, Eye, EyeOff, RefreshCcw } from 'lucide-react'
 import { useAuth } from '@/contexts/AuthContext'
@@ -7,6 +7,7 @@ import Button from '@/components/ui/Button'
 import Input from '@/components/ui/Input'
 import { Card, CardContent, CardHeader } from '@/components/ui/Card'
 import { api } from '@/utils/api'
+import { User } from '@/types'
 
 export default function LoginPage() {
   const [formData, setFormData] = useState({
@@ -93,7 +94,7 @@ export default function LoginPage() {
       const payload = {
         username: formData.username.trim(),
         password: isStudentMode ? 'STUDENT_CAPTCHA' : formData.password,
-        mode: isStudentMode ? 'student_captcha' : 'default',
+        mode: (isStudentMode ? 'student_captcha' : 'default') as 'default' | 'student_captcha',
         captcha: isStudentMode ? captchaInput.trim().toUpperCase() : undefined,
       }
 

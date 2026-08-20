@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import { Plus, Search, Save } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import { Save } from 'lucide-react'
 import { Card, CardContent, CardHeader } from '@/components/ui/Card'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/Table'
 import Button from '@/components/ui/Button'
 import Input from '@/components/ui/Input'
 import Badge from '@/components/ui/Badge'
-import { Student, Subject, Result } from '@/types'
+import { Student, Subject } from '@/types'
 import { api } from '@/utils/api'
 import { useToast } from '@/contexts/ToastContext'
 import { calculatePercentage, getGradeFromPercentage } from '@/utils/helpers'
@@ -209,5 +209,3 @@ export default function ResultEntry() {
     </div>
   )
 }
-
-
