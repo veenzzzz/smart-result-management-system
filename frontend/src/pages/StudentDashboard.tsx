@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { GraduationCap, Award, TrendingUp, FileText } from 'lucide-react'
 import { Card, CardContent, CardHeader } from '@/components/ui/Card'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/Table'
 import Badge from '@/components/ui/Badge'
 import { StudentReport } from '@/types'
 import { api } from '@/utils/api'
-import { getGradeColor, getGradeDescription } from '@/utils/helpers'
+import { getGradeColor } from '@/utils/helpers'
 
 export default function StudentDashboard() {
   const [recentResults, setRecentResults] = useState<StudentReport[]>([])
