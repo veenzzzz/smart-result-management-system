@@ -38,12 +38,11 @@ export function ToastProvider({ children }: ToastProviderProps) {
     setToasts(prev => [...prev, newToast])
     
     // Auto remove after duration
-    if (newToast.duration > 0) {
-      setTimeout(() => {
-        removeToast(id)
-      }, newToast.duration)
-    }
-  }
+    if (newToast.duration && newToast.duration > 0) {
+  setTimeout(() => {
+    removeToast(id)
+  }, newToast.duration)
+}
 
   const removeToast = (id: string) => {
     setToasts(prev => prev.filter(toast => toast.id !== id))
