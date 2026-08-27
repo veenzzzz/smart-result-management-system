@@ -42,7 +42,8 @@ export function ToastProvider({ children }: ToastProviderProps) {
   setTimeout(() => {
     removeToast(id)
   }, newToast.duration)
-}
+    }
+  }
 
   const removeToast = (id: string) => {
     setToasts(prev => prev.filter(toast => toast.id !== id))
