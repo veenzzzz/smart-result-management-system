@@ -1,13 +1,3 @@
-import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { GraduationCap, Eye, EyeOff, RefreshCcw } from 'lucide-react'
-import { useAuth } from '@/contexts/AuthContext'
-import { useToast } from '@/contexts/ToastContext'
-import Button from '@/components/ui/Button'
-import Input from '@/components/ui/Input'
-import { Card, CardContent, CardHeader } from '@/components/ui/Card'
-import { api } from '@/utils/api'
-import { User } from '@/types'
 
 export default function LoginPage() {
   const [formData, setFormData] = useState({
